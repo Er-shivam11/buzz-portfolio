@@ -1,0 +1,97 @@
+.carousel-item img {
+  object-fit: cover;
+  height: 80vh; /* Full viewport height for desktop */
+  width: 100%;
+}
+
+.carousel-caption {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #fff;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.5); /* Dark background for contrast */
+  padding: 20px;
+  border-radius: 10px;
+  animation: fadeIn 1s ease-in-out;
+}
+
+.carousel-caption h1 {
+  font-size: 4em;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+.carousel-caption p {
+  font-size: 1.5em;
+  font-weight: bold;
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7); /* Text shadow */
+}
+
+@keyframes colorChange {
+  0% { color: #00ffff; }
+  25% { color: #ff69b4; }
+  50% { color: #00bfff; }
+  75% { color: #ffd700; }
+  100% { color: #1e90ff; }
+}
+
+.colorful-text {
+  animation: colorChange 4s infinite;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.carousel-control-prev, .carousel-control-next {
+  width: 5%;
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.carousel-control-prev-icon, .carousel-control-next-icon {
+  background-color: rgba(255, 255, 255, 0.5); /* Lighter icon color */
+}
+
+/* Media Queries for Tablets */
+@media (max-width: 768px) {
+  .carousel-item img {
+    height: 60vh; /* Reduce height for tablets */
+  }
+
+  .carousel-caption h1 {
+    font-size: 3em; /* Reduce heading size */
+  }
+
+  .carousel-caption p {
+    font-size: 1.2em; /* Reduce paragraph size */
+  }
+
+  .carousel-caption {
+    padding: 15px; /* Adjust padding */
+  }
+}
+
+/* Media Queries for Mobile Phones */
+@media (max-width: 576px) {
+  .carousel-item img {
+    height: 50vh; /* Further reduce height for mobiles */
+  }
+
+  .carousel-caption h1 {
+    font-size: 2em; /* Smaller heading */
+  }
+
+  .carousel-caption p {
+    font-size: 1em; /* Smaller paragraph */
+  }
+
+  .carousel-caption {
+    padding: 10px; /* Adjust padding for mobile */
+  }
+}

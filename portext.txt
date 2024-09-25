@@ -1,0 +1,98 @@
+Media Detail Page
+Thumbnail Generation (For Videos)
+Transcoding / Format Conversion
+Video Duration Calculation
+Stream Video with HLS
+Progressive Video Loading
+Search and Filter
+Download and Share Media
+Likes/Dislikes and Views Tracking
+Responsive Design
+Media Editing
+Video Transcoding
+
+
+def upload_media(request):
+    if request.method == 'POST':
+        form = MediaFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            media_file = form.save()
+
+            if media_file.media_type == 'video':
+                video_path = media_file.file.path
+
+                # Create a directory to store HLS files
+                hls_directory = os.path.join(settings.MEDIA_ROOT, 'hls', str(media_file.id))
+                os.makedirs(hls_directory, exist_ok=True)
+
+                # Paths for HLS output and playlist files
+                hls_master_playlist = os.path.join(hls_directory, 'master.m3u8')
+
+                # Transcode video to different resolutions and bitrates
+                subprocess.run([
+                    'ffmpeg', '-i', video_path,
+                    '-vf', 'scale=640:360', '-c:v', 'libx264', '-b:v', '800k', '-c:a', 'aac', '-strict', '-2',
+                    '-f', 'hls', '-hls_time', '10', '-hls_playlist_type', 'vod',
+                    os.path.join(hls_directory, '360p.m3u8'),
+                    '-vf', 'scale=1280:720', '-c:v', 'libx264', '-b:v', '1400k', '-c:a', 'aac', '-strict', '-2',
+                    '-f', 'hls', '-hls_time', '10', '-hls_playlist_type', 'vod',
+                    os.path.join(hls_directory, '720p.m3u8'),
+                    '-vf', 'scale=1920:1080', '-c:v', 'libx264', '-b:v', '2800k', '-c:a', 'aac', '-strict', '-2',
+                    '-f', 'hls', '-hls_time', '10', '-hls_playlist_type', 'vod',
+                    os.path.join(hls_directory, '1080p.m3u8'),
+                ], check=True)
+
+                # Create a master playlist for adaptive bitrate streaming
+                with open(hls_master_playlist, 'w') as f:
+                    f.write("#EXTM3U\n")
+                    f.write("#EXT-X-STREAM-INF:BANDWIDTH=800000,RESOLUTION=640x360\n")
+                    f.write("360p.m3u8\n")
+                    f.write("#EXT-X-STREAM-INF:BANDWIDTH=1400000,RESOLUTION=1280x720\n")
+                    f.write("720p.m3u8\n")
+                    f.write("#EXT-X-STREAM-INF:BANDWIDTH=2800000,RESOLUTION=1920x1080\n")
+                    f.write("1080p.m3u8\n")
+
+                # Save the HLS URL in the media file
+                media_file.hls = f'hls/{media_file.id}/master.m3u8'
+                media_file.save()
+
+            return redirect('media_list')
+    else:
+        form = MediaFileForm()
+    return render(request, 'upload.html', {'form': form})
+
+
+
+
+
+for thumbnail
+
+
+def upload_media(request):
+    if request.method == 'POST':
+        form = MediaFileForm(request.POST, request.FILES)
+        if form.is_valid():
+            media_file = form.save()
+
+            if media_file.media_type == 'video':
+                video_path = media_file.file.path
+                thumbnail_filename = f"{media_file.id}.jpg"
+                thumbnail_path = os.path.join(settings.MEDIA_ROOT, 'thumbnails', thumbnail_filename)
+
+                if not os.path.exists(thumbnail_path):  
+                    subprocess.run([
+                        'ffmpeg', 
+                        '-i', video_path, 
+                        '-ss', '00:00:03', 
+                        '-vframes', '1', 
+                        thumbnail_path
+                    ], check=True)
+                    
+                    media_file.thumbnail.name = f'thumbnails/{thumbnail_filename}'
+                    media_file.save()
+
+            return redirect('media_list')
+    else:
+        form = MediaFileForm()
+    return render(request, 'upload.html', {'form': form})
+

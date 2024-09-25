@@ -1,0 +1,21 @@
+@media (max-width: 768px){
+    .proj_name {
+       font-size: 18px;
+       }
+       .floor .fl_rooms .rms { 
+           min-width: 77px; 
+           margin: 10px 12px 0 0;
+       }
+   }
+   @media (max-width: 500px){
+    .proj_name {
+       font-size: 14px;
+       }
+       .floor .fl_rooms .rms { 
+           min-width: 80px;
+           margin: 10px 20px 0 0;
+       }
+       .common .icons span {
+           font-size: 24px; 
+       }
+   }
