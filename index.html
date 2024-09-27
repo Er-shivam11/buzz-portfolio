@@ -9,28 +9,54 @@
     <link rel="stylesheet" href="static/css/fontawesome.css">
     <link rel="stylesheet" href="static/css/responsive.css">
     <link rel="stylesheet" href="static/css/carou.css">
+   
 </head>
 <body>
     <!-- Header Section -->
-    <header class="header">
-        <div class="navbar-container">
-            <div class="logo">
-                <a href="#hero">
-                    <img src="static/images/automation.png" alt="AeroRise Logo" class="logo-img"> <!-- Add your logo image here -->
-                    AeroRise Solutions
-                </a>
-            </div>
-            <nav class="nav-links mt-3">
-                <ul>
-                    <li><a href="#hero">Home</a></li>
-                    <li><a href="#about">About Us</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
+    <div id="loader">
+        <div class="spinner-grow text-info" role="status">
+          <span class="sr-only">Loading...</span>
         </div>
+      </div>
+    <header class="header">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <!-- Logo -->
+                <a class="navbar-brand" href="#hero">
+                    <img src="static/images/automation.png" alt="AeroRise Logo">
+                    <span class="font-weight-bold">AeroRise Solutions</span>
+                </a>
+                
+    
+                <!-- Hamburger Menu (Mobile View) -->
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+    
+                <!-- Navigation Links -->
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="#hero">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#about">About Us</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#services">Services</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#portfolio">Portfolio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#contact">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
     </header>
+    
     <section id="hero">
         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
             <ol class="carousel-indicators">
@@ -85,12 +111,13 @@
             </div>
         </div>
     </section>
+    
     <!-- Services Section -->
     <section id="services" class="py-5">
         <div class="container py-5">
             <h2 class="gradient-header" class="text-center mt-5">Our Services</h2>
             <div class="row mb-4 text-center">
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/cdd.jpg" alt="Custom Software Development" class="img-fluid">
@@ -101,7 +128,7 @@
                         <h5>Custom Software Development</h5>
                     </article>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/cd.jpg" alt="Web App Development" class="img-fluid">
@@ -115,7 +142,7 @@
                     </article>
                 </div>
                 
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/app.jpg" alt="Mobile App Development" class="img-fluid">
@@ -126,7 +153,7 @@
                         <h5>Mobile App Development</h5>
                     </article>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/dsa.jpg" alt="Data & Analytics Solutions" class="img-fluid">
@@ -137,7 +164,7 @@
                         <h5>Data & Analytics Solutions</h5>
                     </article>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/api.jpg" alt="API Development" class="img-fluid">
@@ -148,7 +175,7 @@
                         <h5>API Development</h5>
                     </article>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <article class="service-box mb-4">
                         <div class="image-container">
                             <img src="static/images/clod.jpg" alt="Cloud & DevOps Solutions" class="img-fluid">
@@ -171,7 +198,7 @@
             <h2 class="gradient-header" class="text-center">Our Portfolio</h2>
             <div class="row">
                 <!-- Ecommerce Based Project -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="portfolio-item">
                         <div class="image-container">
                             <img src="static/images/e3.jpg" alt="Ecommerce Project" class="img-fluid">
@@ -185,7 +212,7 @@
                 </div>
                 
                 <!-- Trace and Track Project -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="portfolio-item">
                         <div class="image-container">
                             <img src="static/images/q2.jpg" alt="Trace and Track Project" class="img-fluid">
@@ -194,12 +221,12 @@
                             </div>
                         </div>
                     </div>
-                    <h5 class="mt-3 text-center">Trace and Track</h5>
+                    <h5 class="mt-3 text-center">SmartTrace Logistics System</h5>
 
                 </div>
                 
                 <!-- Realtime Streaming Project -->
-                <div class="col-md-4">
+                <div class="col-md-4 mb-4">
                     <div class="portfolio-item">
                         <div class="image-container">
                             <img src="static/images/rl.jpg" alt="Realtime Streaming Project" class="img-fluid">
@@ -246,26 +273,31 @@
         </div>
     </div>
 </section>
+<section id="contact" class="py-5"></section>
+    <div class="container py-5">
+        <h2 class="gradient-header text-center mb-5">Contact Us</h2>
 
-
-
-<section id="contact" class="py-5">
-    <div class="container">
-        <h2 class="text-center mb-5">Contact Us</h2>
         <div class="row">
             <div class="col-md-8 offset-md-2">
                 <div class="contact-card p-4">
                     <form>
-                        <div class="form-group">
-                            <input type="text" class="form-control" id="name" placeholder="Your Name" required>
+                        <div class="user-box">
+                            <input type="text" name="name" required="">
+                            <label>Full Name</label>
                         </div>
-                        <div class="form-group">
-                            <input type="email" class="form-control" id="email" placeholder="Your Email" required>
+                        <div class="user-box">
+                            <input type="email" name="email" required="">
+                            <label>Email Address</label>
                         </div>
-                        <div class="form-group">
-                            <textarea class="form-control" id="message" rows="5" placeholder="Your Message" required></textarea>
+                        <div class="user-box">
+                            <input type="tel" name="mobile" required="">
+                            <label>Mobile Number</label>
                         </div>
-                        <button type="submit" class="btn btn-submit btn-block">Send Message</button>
+                        <div class="user-box">
+                            <textarea name="message" required=""></textarea>
+                            <label>Message</label>
+                        </div>
+                        <button type="submit" class="btn btn-block">Submit</button>
                     </form>
                 </div>
             </div>
@@ -273,31 +305,53 @@
     </div>
 </section>
 
-
-
-
-
-
-
+ 
 
     <!-- contact form end -->
-    <footer class="py-4 bg-white text-dark-bold">
+    <footer class="py-4 bg-dark text-white">
         <div class="container text-center">
-            <p>&copy; 2024 Aero Rise Solution. All Rights Reserved.</p>
-            <div>
-                <a href="#" class="text-dark mr-3">Facebook</a>
-                <a href="#" class="text-dark mr-3">Twitter</a>
-                <a href="#" class="text-dark">LinkedIn</a>
+            <div class="row text-center">
+                <div class="col-md-4 mb-3">
+                    <h5 class="font-weight-bold text-white">Aero Rise Solution</h5>
+                    <p class="text-white">Your partner in innovative solutions that elevate your business to new heights. We specialize in web development, digital marketing, and IT consulting services.</p>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="font-weight-bold text-white">Services</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-white">Web Development</a></li>
+                        <li><a href="#" class="text-white">Mobile App Development</a></li>
+                        <li><a href="#" class="text-white">Digital Marketing</a></li>
+                        <li><a href="#" class="text-white">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 mb-3">
+                    <h5 class="font-weight-bold text-white">Contact Us</h5>
+                    <p class="text-white">
+                        <strong>Email:</strong> <a href="mailto:info@aerorisesolution.com" class="text-white">info@aerorisesolution.com</a><br>
+                        <strong>Phone:</strong> <a href="tel:+1234567890" class="text-white">7977285585</a><br>
+                        <strong>Address:</strong> MUMBAI,INDIA.
+                    </p>
+                </div>
             </div>
+            <p class="text-white">&copy; 2024 AeroRise Solution. All Rights Reserved.</p>
+            <!-- <div>
+                <a href="#" class="text-white mr-3">Facebook</a>
+                <a href="#" class="text-white mr-3">Twitter</a>
+                <a href="#" class="text-white">LinkedIn</a>
+            </div> -->
         </div>
     </footer>
-   
+       
     <script src="static/js/jquery.min.js"></script>
     <script src="static/js/bootstrap.js"></script>
     <script src="static/js/fontawesome.js"></script>
     <script src="static/js/custom.js"></script>
     <script src="static/js/bootstrap.bundle.min.js"></script>
     <script>
+        $(window).on('load', function() {
+      $('#loader').fadeOut(); // Hides the loader
+      $('#content').fadeIn(); // Shows your webpage content
+    });
         $(document).ready(function(){
             // Smooth scrolling for navigation links
             $('.nav-links a').on('click', function(event) {
@@ -308,6 +362,13 @@
                 }, 800); // Adjust speed as needed
             });
         });
+    $(document).ready(function () {
+        $('.navbar-nav li a').click(function () {
+            if ($('.navbar-toggler').is(':visible')) {
+                $('.navbar-collapse').collapse('hide');
+            }
+        });
+    });
     </script>
 </body>
 </html>

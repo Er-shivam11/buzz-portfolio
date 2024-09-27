@@ -75,23 +75,49 @@
   .carousel-caption {
     padding: 15px; /* Adjust padding */
   }
-}
-
-/* Media Queries for Mobile Phones */
+}/* Mobile Queries */
 @media (max-width: 576px) {
   .carousel-item img {
-    height: 50vh; /* Further reduce height for mobiles */
-  }
-
-  .carousel-caption h1 {
-    font-size: 2em; /* Smaller heading */
-  }
-
-  .carousel-caption p {
-    font-size: 1em; /* Smaller paragraph */
+    height: 50vh; /* Reduce image height for mobile */
   }
 
   .carousel-caption {
-    padding: 10px; /* Adjust padding for mobile */
+    top: 50%; /* Vertically center the caption */
+    left: 50%; /* Horizontally center the caption */
+    transform: translate(-50%, -50%); /* Ensure perfect centering */
+    padding: 10px; /* Adequate padding for small screens */
+    width: 90%; /* Restrict caption width */
+    text-align: center; /* Ensure text is centered */
+    background: rgba(0, 0, 0, 0.7); /* Darken background for readability */
+    border-radius: 8px; /* Slightly soften edges */
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.5em; /* Adjust font size for mobile */
+    line-height: 1.2; /* Line height for better spacing */
+    text-align: center; /* Center the text */
+    margin: 0; /* Remove margin */
+  }
+
+  .carousel-caption p {
+    font-size: 1em; /* Adjust paragraph font size */
+    line-height: 1.5; /* Increase line height for readability */
+    text-align: center; /* Center the text */
+    margin: 10px 0 0; /* Add some space below the heading */
+  }
+}
+
+/* Additional styles for extra-small devices */
+@media (max-width: 400px) {
+  .carousel-item img {
+    height: 40vh; /* Reduce image height even further */
+  }
+
+  .carousel-caption h1 {
+    font-size: 1.2em; /* Smaller font size for very small devices */
+  }
+
+  .carousel-caption p {
+    font-size: 0.9em; /* Slightly smaller paragraph size */
   }
 }

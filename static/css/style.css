@@ -8,6 +8,16 @@
 body {
     font-family: 'Poppins', sans-serif;
 }
+#loader {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: white; /* You can set this to any color */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+  }
 
 /* Header styles */
 .header {
@@ -27,93 +37,29 @@ body {
     font-weight: bold;
 }
 
-.navbar-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-img {
+.navbar-brand img {
     max-width: 50px;
     height: auto;
     margin-right: 10px;
 }
 
-.logo a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-size: 24px;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
+/* Make the nav links bold and default color */
+.navbar-nav .nav-link {
+    font-weight: bold; /* Bold text */
+    color: black !important; /* Use !important to override other styles */
+    transition: color 0.3s ease-in-out; /* Smooth transition */
 }
 
-.nav-links ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+/* Hover effect - change color to blue or red */
+.navbar-nav .nav-link:hover {
+    background: linear-gradient(to bottom right, #304d56, #00c6ff);
+    -webkit-background-clip: text; /* Apply gradient to text */
+    -webkit-text-fill-color: transparent; /* Show the gradient on text */
+    background-clip: text; /* For non-Webkit browsers */
+    text-fill-color: transparent; /* Make the text transparent */
 }
 
-.nav-links ul li a {
-    color: rgb(0, 0, 0);
-    text-decoration: none;
-    font-size: 16px;
-    font-weight: bold;
-    transition: color 0.3s ease;
-}
 
-.nav-links ul li a:hover {
-    color: #0084ff;
-}
-
-/* Media Queries for Tablets */
-@media (max-width: 768px) {
-    .navbar-container {
-        flex-direction: column; /* Stack logo and navigation on top of each other */
-        text-align: center;
-    }
-
-    .logo a {
-        font-size: 20px; /* Reduce logo text size for tablets */
-    }
-
-    .nav-links ul {
-        flex-direction: column; /* Stack navigation links vertically */
-        gap: 10px;
-    }
-
-    .nav-links ul li a {
-        font-size: 14px; /* Reduce font size for links */
-    }
-}
-
-/* Media Queries for Mobile Phones */
-@media (max-width: 576px) {
-    .navbar-container {
-        flex-direction: column;
-        padding: 10px; /* Adjust padding for mobile */
-    }
-
-    .logo a {
-        font-size: 18px; /* Smaller font size for logo on mobile */
-    }
-
-    .nav-links ul {
-        flex-direction: column;
-        gap: 5px; /* Reduce gap between links */
-    }
-
-    .nav-links ul li a {
-        font-size: 12px; /* Reduce font size for links on mobile */
-    }
-}
 
 /* Adjust to contain or cover */
 /* About Section Styling */
@@ -202,6 +148,7 @@ body {
 }
 
 /* Hover Effect for Image and Description */
+
 .service-box:hover .image-container img {
     transform: scale(1.05); /* Slightly zoom in the image on hover */
 }
@@ -300,27 +247,83 @@ body {
 .technology-grid img:hover {
     transform: scale(1.1);
 }
+/* form */
 
 
-/* contact */
 .contact-card {
-    background: linear-gradient(to bottom right, #304d56, #00c6ff); /* Gradient background */
-    border-radius: 8px; /* Rounded corners */
-    color: #fff; /* Text color */
+    position: relative;
+    padding: 40px;
+    background: rgba(255, 255, 255, 0.9); /* Light background for form */
+    box-shadow: 0 15px 25px rgba(0, 0, 0, .6);
+    border-radius: 10px;
 }
 
-.contact-card .form-control {
-    border: none; /* Remove default border */
-    border-radius: 4px; /* Rounded corners */
-    margin-bottom: 15px; /* Spacing between inputs */
+.contact-card h2 {
+    margin: 0 0 30px;
+    padding: 0;
+    color: #333; /* Dark text for the header */
+    text-align: center;
 }
 
-.btn-submit {
+.user-box {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.user-box input,
+.user-box textarea {
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333; /* Dark color for input text */
+    margin-bottom: 10px;
+    border: none;
+    border-bottom: 2px solid #15bed1; /* Thin black line */
+    outline: none;
+    background: transparent;
+}
+
+.user-box label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 10px 0;
+    font-size: 16px;
+    color: #333; /* Dark color for label */
+    pointer-events: none;
+    transition: .5s;
+}
+
+.user-box input:focus ~ label,
+.user-box input:valid ~ label,
+.user-box textarea:focus ~ label,
+.user-box textarea:valid ~ label {
+    top: -20px;
+    left: 0;
+    color: #03e9f4; /* Change label color on focus */
+    font-size: 12px;
+}
+
+button {
+    position: relative;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #1dd0d0; /* Button text color */
+    font-size: 16px;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    transition: .5s;
+    margin-top: 20px; /* Spacing above button */
+    letter-spacing: 2px;
     background-color: #000000; /* Button background */
-    border: none; /* Remove border */
-    border-radius: 4px; /* Rounded corners */
+    border: none; /* No border */
+    cursor: pointer; /* Pointer cursor */
 }
 
-.btn-submit:hover {
-    background-color: #000000; /* Darker on hover */
+button:hover {
+    background-color: #23b4bb; /* Change button background on hover */
+    color: #000; /* Change text color on hover */
 }
+
+
